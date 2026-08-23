@@ -1,0 +1,44 @@
+<!-- Path: src/app/features/auth/register.component.html -->
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0 p-4">
+                <h3 class="text-center fw-bold text-primary mb-4">Create Student Profile</h3>
+
+                @if (errorMessage()) {
+                <div class="alert alert-danger small shadow-sm mb-3">{{ errorMessage() }}</div>
+                }
+
+                <form (ngSubmit)="onRegisterSubmit()">
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">First Name</label>
+                            <input type="text" class="form-control" name="firstName"
+                                [(ngModel)]="registrationData.firstName" required />
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">Last Name</label>
+                            <input type="text" class="form-control" name="lastName"
+                                [(ngModel)]="registrationData.lastName" required />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Email Address</label>
+                        <input type="email" class="form-control" name="email" [(ngModel)]="registrationData.email"
+                            required />
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label small fw-bold">Password (min 6 characters)</label>
+                        <input type="password" class="form-control" name="password"
+                            [(ngModel)]="registrationData.password" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded-pill shadow-sm py-2 mb-3">Register
+                        Profile</button>
+                    <p class="text-center small text-muted mb-0">
+                        Already registered? <a routerLink="/login" class="text-decoration-none">Sign in instead</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

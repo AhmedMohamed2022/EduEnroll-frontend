@@ -9,5 +9,5 @@ export interface EnrollmentDetailsDto {
   studentId: number;
   courseId: number;
   status: string;
-  enrolledAt: string;
+  enrolledAt: Date;
 }

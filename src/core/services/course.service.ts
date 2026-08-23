@@ -8,7 +8,7 @@ import {
   EnrollStudentDto,
   EnrollmentDetailsDto,
 } from '../models/enrollment.model';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class CourseService {
@@ -46,19 +46,20 @@ export class CourseService {
 
   // 🔴 THE CORE REACTIVE FRONTEND ENROLLMENT METHOD
   public enrollStudent(
-    dto: EnrollStudentDto,
+    courseId: number,
   ): Observable<GeneralApiResponse<EnrollmentDetailsDto>> {
+    // Pass an object payload: { courseId: courseId }
     return this.http
       .post<
         GeneralApiResponse<EnrollmentDetailsDto>
-      >(`${this.baseUrl}/enrollments`, dto)
+      >(`${this.baseUrl}/enrollments/enroll`, { courseId })
       .pipe(
         tap((res) => {
           if (res.isSuccess) {
-            // Increment currentEnrolled on the target course in memory instantly!
+            console.log('student enrolled');
             this.#coursesSignal.update((currentCourses) =>
               currentCourses.map((course) =>
-                course.id === dto.courseId
+                course.id === courseId
                   ? { ...course, currentEnrolled: course.currentEnrolled + 1 }
                   : course,
               ),

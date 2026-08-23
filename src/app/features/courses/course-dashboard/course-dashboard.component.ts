@@ -56,22 +56,17 @@ export class CourseDashboardComponent implements OnInit {
   public onEnrollClick(courseId: number): void {
     this.clearMessages();
 
-    // Passing studentId: 1 for local development mapping until Auth slice is implemented
-    this.courseService.enrollStudent({ studentId: 1, courseId }).subscribe({
+    // Clean, secure payload handling mapping parameters natively
+    this.courseService.enrollStudent(courseId).subscribe({
       next: (res) => {
-        if (res.isSuccess) {
+        if (res.isSuccess)
           this.successMessage.set('Successfully enrolled in the course!');
-        } else {
-          // Captures "Course Full" or "Already Enrolled" custom business exceptions gracefully
-          this.errorMessage.set(res.errors.join(', '));
-        }
       },
       error: (err) => {
-        const backendErrors = err.error?.errors;
+        console.log(err);
         this.errorMessage.set(
-          backendErrors
-            ? backendErrors.join(', ')
-            : 'Enrollment execution failed.',
+          err.error?.errors?.join(',') ||
+            'Please login to perform enrollment actions.',
         );
       },
     });

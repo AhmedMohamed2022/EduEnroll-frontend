@@ -1,1 +1,26 @@
+<!-- Path: src/app/app.component.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm mb-4">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-uppercase" routerLink="/">EduEnroll</a>
+
+    <div class="ms-auto d-flex align-items-center gap-3">
+      @if (authService.isAuthenticated()) {
+      <!-- Display logged in state details -->
+      <span class="text-light small">
+        Signed in as: <strong class="text-info">{{ authService.currentUser()?.email }}</strong>
+      </span>
+      <button class="btn btn-sm btn-outline-danger rounded-pill px-3" (click)="onLogout()">
+        Logout
+      </button>
+      } @else {
+      <!-- Display anonymous action buttons -->
+      <a class="btn btn-sm btn-outline-light rounded-pill px-3" routerLink="/login">Sign In</a>
+      <a class="btn btn-sm btn-primary text-white rounded-pill px-3" routerLink="/register">Register</a>
+      }
+    </div>
+  </div>
+</nav>
+
+<!-- Path: src/app/app.component.html -->
+<app-navbar></app-navbar>
 <router-outlet></router-outlet>
