@@ -1,41 +1,58 @@
 <!-- Path: src/app/features/auth/register.component.html -->
-<div class="container mt-5">
+<div class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow border-0 p-4">
-                <h3 class="text-center fw-bold text-primary mb-4">Create Student Profile</h3>
+        <div class="col-12 col-md-8 col-lg-5">
+            <div class="card card-premium shadow-sm border-0 p-4 p-md-5 bg-white">
+                <div class="text-center mb-4">
+                    <div
+                        class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary p-3 rounded-circle mb-3">
+                        <i class="bi bi-person-plus-fill fs-3"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark mb-1">Create Student Profile</h3>
+                    <p class="text-muted small">Register to start enrolling in upcoming courses</p>
+                </div>
 
                 @if (errorMessage()) {
-                <div class="alert alert-danger small shadow-sm mb-3">{{ errorMessage() }}</div>
+                <div class="alert alert-danger border-0 shadow-none d-flex align-items-center rounded-3 mb-3 p-3">
+                    <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
+                    <span class="small fw-medium">{{ errorMessage() }}</span>
+                </div>
                 }
 
                 <form (ngSubmit)="onRegisterSubmit()">
-                    <div class="row">
-                        <div class="col-6 mb-3">
-                            <label class="form-label small fw-bold">First Name</label>
-                            <input type="text" class="form-control" name="firstName"
-                                [(ngModel)]="registrationData.firstName" required />
+                    <div class="row g-3 mb-3">
+                        <div class="col-12 col-sm-6">
+                            <label class="form-label small fw-bold text-secondary">First Name</label>
+                            <input type="text" class="form-control form-control-premium" placeholder="John"
+                                name="firstName" [(ngModel)]="registrationData.firstName" required />
                         </div>
-                        <div class="col-6 mb-3">
-                            <label class="form-label small fw-bold">Last Name</label>
-                            <input type="text" class="form-control" name="lastName"
-                                [(ngModel)]="registrationData.lastName" required />
+                        <div class="col-12 col-sm-6">
+                            <label class="form-label small fw-bold text-secondary">Last Name</label>
+                            <input type="text" class="form-control form-control-premium" placeholder="Doe"
+                                name="lastName" [(ngModel)]="registrationData.lastName" required />
                         </div>
                     </div>
+
                     <div class="mb-3">
-                        <label class="form-label small fw-bold">Email Address</label>
-                        <input type="email" class="form-control" name="email" [(ngModel)]="registrationData.email"
+                        <label class="form-label small fw-bold text-secondary">Email Address</label>
+                        <input type="email" class="form-control form-control-premium"
+                            placeholder="john.doe@university.com" name="email" [(ngModel)]="registrationData.email"
                             required />
                     </div>
+
                     <div class="mb-4">
-                        <label class="form-label small fw-bold">Password (min 6 characters)</label>
-                        <input type="password" class="form-control" name="password"
-                            [(ngModel)]="registrationData.password" required />
+                        <label class="form-label small fw-bold text-secondary">Password (min 6 characters)</label>
+                        <input type="password" class="form-control form-control-premium" placeholder="••••••••"
+                            name="password" [(ngModel)]="registrationData.password" required />
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 rounded-pill shadow-sm py-2 mb-3">Register
-                        Profile</button>
+
+                    <button type="submit" class="btn btn-primary btn-premium w-100 shadow-sm mb-3">
+                        Register Account
+                    </button>
+
                     <p class="text-center small text-muted mb-0">
-                        Already registered? <a routerLink="/login" class="text-decoration-none">Sign in instead</a>
+                        Already registered? <a routerLink="/login"
+                            class="text-primary fw-medium text-decoration-none">Sign in instead</a>
                     </p>
                 </form>
             </div>

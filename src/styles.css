@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+/* Path: src/styles.css */
+@import url("https://googleapis.com");
+@import url("https://jsdelivr.net");
+
+:root {
+  --bs-body-font-family: "Plus Jakarta Sans", sans-serif;
+  --bs-body-bg: #f8f9fa;
+  --bs-primary: #4f46e5;
+  --bs-primary-rgb: 79, 70, 229;
+}
+
+body {
+  background-color: var(--bs-body-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom visual depth upgrades */
+.card-premium {
+  border: none !important;
+  border-radius: 16px !important;
+  transition:
+    transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.25s ease-in-out;
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.08) !important;
+}
+
+.form-control-premium {
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 10px !important;
+  padding: 0.6rem 1rem !important;
+  font-size: 0.95rem !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.form-control-premium:focus {
+  border-color: var(--bs-primary) !important;
+  box-shadow: 0 0 0 4px rgba(var(--bs-primary-rgb), 0.15) !important;
+}
+
+.btn-premium {
+  font-weight: 600 !important;
+  padding: 0.6rem 1.5rem !important;
+  border-radius: 10px !important;
+  transition: all 0.2s ease-in-out !important;
+}
