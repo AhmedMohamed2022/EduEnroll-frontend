@@ -1,0 +1,73 @@
+<!-- Path: src/app/features/courses/course-dashboard.component.html -->
+<div class="container mt-5">
+    <h2 class="mb-4 text-primary fw-bold">EduEnroll Course Board</h2>
+
+    @if (errorMessage()) {
+    <div class="alert alert-danger shadow-sm mb-4">{{ errorMessage() }}</div>
+    }
+
+    <div class="row g-4">
+        <!-- Left Column: Simple Creation Form Container Layout Card -->
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0 p-4 bg-light">
+                <h4 class="fw-bold mb-3">Add New Course</h4>
+                <form (ngSubmit)="onFormSubmit()">
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Title</label>
+                        <input type="text" class="form-control" name="title" [(ngModel)]="newCourse.title" required />
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small fw-bold">Description</label>
+                        <textarea class="form-control" name="description" [(ngModel)]="newCourse.description" rows="3"
+                            required></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">Capacity</label>
+                            <input type="number" class="form-control" name="capacity" [(ngModel)]="newCourse.capacity"
+                                required />
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label class="form-label small fw-bold">Price ($)</label>
+                            <input type="number" class="form-control" name="price" [(ngModel)]="newCourse.price"
+                                required />
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 rounded-pill shadow-sm py-2">Create
+                        Course</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Column: Active Live Signal Render Stream List Grid Container -->
+        <div class="col-md-8">
+            <h4 class="fw-bold mb-3">Available Courses ({{ coursesList().length }})</h4>
+
+            @if (coursesList().length === 0) {
+            <div class="p-5 border text-center rounded text-muted bg-white shadow-sm">
+                No active course records found in system registries.
+            </div>
+            } @else {
+            <div class="row row-cols-1 row-cols-md-2 g-3">
+                @for (course of coursesList(); track course.id) {
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-start border-primary border-4">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div>
+                                <h5 class="card-title fw-bold text-dark">{{ course.title }}</h5>
+                                <p class="card-text text-secondary text-truncate small">{{ course.description }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-3 pt-2 border-top">
+                                <span class="badge bg-secondary rounded-pill">Cap: {{ course.currentEnrolled }}/{{
+                                    course.capacity }}</span>
+                                <span class="fw-bold text-success fs-5">${{ course.price }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+            }
+        </div>
+    </div>
+</div>
