@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CourseService } from '../../../../core/services/course.service';
 import { CourseCreateDto } from '../../../../core/models/course.model';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-course-dashboard',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './course-dashboard.component.html',
 })
 export class CourseDashboardComponent implements OnInit {

@@ -68,4 +68,13 @@ export class CourseService {
         }),
       );
   }
+  // Path: src/app/core/services/course.service.ts
+
+  public getCourseById(
+    id: number,
+  ): Observable<GeneralApiResponse<CourseDetailsDto>> {
+    return this.http.get<GeneralApiResponse<CourseDetailsDto>>(
+      `${this.baseUrl}/courses/${id}`,
+    );
+  }
 }

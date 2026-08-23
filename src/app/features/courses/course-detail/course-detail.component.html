@@ -1,0 +1,73 @@
+<!-- Path: src/app/features/courses/course-detail/course-detail.component.html -->
+<div class="container my-5">
+    <!-- Back navigation trigger link row alignment -->
+    <div class="mb-4">
+        <a routerLink="/" class="text-primary fw-medium text-decoration-none small">
+            <i class="bi bi-arrow-left me-1"></i> Back to Dashboard
+        </a>
+    </div>
+
+    @if (errorMessage()) {
+    <div class="alert alert-danger border-0 shadow-sm p-3 rounded-3">{{ errorMessage() }}</div>
+    }
+    @if (successMessage()) {
+    <div class="alert alert-success border-0 shadow-sm p-3 rounded-3">{{ successMessage() }}</div>
+    }
+
+    @if (course(); as item) {
+    <div class="row g-4">
+        <!-- Left Column: Master Syllabus Text Summary Content Segment -->
+        <div class="col-12 col-lg-8">
+            <div class="card card-premium shadow-sm border-0 p-4 p-md-5 bg-white mb-4">
+                <div class="d-flex align-items-center gap-2 text-muted small mb-2">
+                    <i class="bi bi-calendar3"></i>
+                    <span>Registered on: {{ item.createdAt | date:'mediumDate' }}</span>
+                </div>
+                <h1 class="fw-bold text-dark display-6 mb-3">{{ item.title }}</h1>
+                <hr class="text-muted opacity-25 my-4" />
+                <h5 class="fw-bold text-secondary mb-3">Course Overview & Syllabus</h5>
+                <p class="text-secondary leading-relaxed" style="white-space: pre-line; line-height: 1.7;">
+                    {{ item.description }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Column: Interactive Registration Purchase Checkout Sidebar Widget Card -->
+        <div class="col-12 col-lg-4">
+            <div class="card card-premium shadow-sm border-0 p-4 bg-white position-sticky" style="top: 2rem;">
+                <div class="text-center pb-3 border-bottom mb-4">
+                    <span class="text-muted small d-block mb-1">Tuition Fees</span>
+                    <span class="display-5 fw-extrabold text-success font-monospace">${{ item.price }}</span>
+                </div>
+
+                <div class="mb-4">
+                    <div class="d-flex justify-content-between align-items-center small mb-2">
+                        <span class="text-muted fw-medium">Available Vacancies:</span>
+                        <span class="badge rounded-pill"
+                            [ngClass]="item.currentEnrolled >= item.capacity ? 'bg-danger text-white' : 'bg-primary bg-opacity-10 text-primary'">
+                            {{ item.capacity - item.currentEnrolled }} Seats remaining
+                        </span>
+                    </div>
+                    <!-- Simple Bootstrap linear progress indicator tracking loading metrics -->
+                    <div class="progress rounded-pill shadow-none style" style="height: 8px;">
+                        <div class="progress-bar rounded-pill" role="progressbar"
+                            [style.width.%]="(item.currentEnrolled / item.capacity) * 100"
+                            [ngClass]="item.currentEnrolled >= item.capacity ? 'bg-danger' : 'bg-primary'"></div>
+                    </div>
+                </div>
+
+                @if (item.currentEnrolled >= item.capacity) {
+                <button class="btn btn-secondary btn-premium w-100 disabled py-3" type="button">
+                    <i class="bi bi-slash-circle me-1"></i> Registration Locked
+                </button>
+                } @else {
+                <button class="btn btn-primary btn-premium w-100 shadow-sm py-3" type="button"
+                    (click)="onEnrollClick()">
+                    <i class="bi bi-person-plus-fill me-1"></i> Confirm Quick Enrollment
+                </button>
+                }
+            </div>
+        </div>
+    </div>
+    }
+</div>
