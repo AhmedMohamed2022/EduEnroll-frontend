@@ -17,6 +17,13 @@ export class AuthService {
   // Expose state as read-only to prevent component manipulation
   public currentUser = this.#currentUserSignal.asReadonly();
   public isAuthenticated = computed(() => this.#currentUserSignal() !== null);
+  // Path: src/app/core/services/auth.service.ts
+
+  // 🔴 ADDED: Computed boolean tracking matching role parameters from active signals
+  public isInstructor = computed(
+    () => this.currentUser()?.userType === 'Instructor',
+  );
+  public isStudent = computed(() => this.currentUser()?.userType === 'Student');
 
   public login(dto: any): Observable<GeneralApiResponse<AuthResponseDto>> {
     return this.http

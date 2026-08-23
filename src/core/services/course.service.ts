@@ -56,7 +56,6 @@ export class CourseService {
       .pipe(
         tap((res) => {
           if (res.isSuccess) {
-            console.log('student enrolled');
             this.#coursesSignal.update((currentCourses) =>
               currentCourses.map((course) =>
                 course.id === courseId

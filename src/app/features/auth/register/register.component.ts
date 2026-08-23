@@ -15,12 +15,15 @@ export class RegisterComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
 
+  // Path: src/app/features/auth/register.component.ts
   public registrationData = {
     email: '',
     password: '',
     firstName: '',
     lastName: '',
+    userType: 'Student',
   };
+
   public errorMessage = signal<string | null>(null);
 
   public onRegisterSubmit(): void {

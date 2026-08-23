@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CourseService } from '../../../../core/services/course.service';
 import { CourseCreateDto } from '../../../../core/models/course.model';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
   selector: 'app-course-dashboard',
@@ -14,7 +15,7 @@ import { RouterLink } from '@angular/router';
 })
 export class CourseDashboardComponent implements OnInit {
   private courseService = inject(CourseService);
-
+  public authService = inject(AuthService);
   public coursesList = this.courseService.courses;
   public newCourse: CourseCreateDto = {
     title: '',
@@ -64,7 +65,6 @@ export class CourseDashboardComponent implements OnInit {
           this.successMessage.set('Successfully enrolled in the course!');
       },
       error: (err) => {
-        console.log(err);
         this.errorMessage.set(
           err.error?.errors?.join(',') ||
             'Please login to perform enrollment actions.',

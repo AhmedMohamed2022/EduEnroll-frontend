@@ -15,7 +15,10 @@
     }
 
     <div class="row g-4">
+
         <!-- Left Column: Add New Course Panel Card Form -->
+        @if (authService.isInstructor()) {
+        <!-- Left Column: Add New Course Panel Card Form container layout remains exactly matching -->
         <div class="col-12 col-lg-4">
             <div class="card card-premium shadow-sm border-0 p-4 bg-white">
                 <div class="d-flex align-items-center gap-2 mb-3 border-bottom pb-3">
@@ -56,9 +59,11 @@
                 </form>
             </div>
         </div>
+        }
+
 
         <!-- Right Column: Live Signal Render Stream List Grid Container -->
-        <div class="col-12 col-lg-8">
+        <div class="col-12" [ngClass]="authService.isInstructor() ? 'col-lg-8' : 'col-lg-12'">
             <div class="d-flex justify-content-between align-items-center mb-3">
                 <h4 class="fw-bold text-dark mb-0">
                     Available Courses
