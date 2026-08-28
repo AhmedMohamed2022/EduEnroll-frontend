@@ -1,3 +1,12 @@
 <!-- Path: src/app/app.component.html -->
+@if (layout() === 'sidebar') {
+<div class="cf-app-shell d-flex">
+    <app-sidebar></app-sidebar>
+    <main class="cf-main-content flex-grow-1">
+        <router-outlet></router-outlet>
+    </main>
+</div>
+} @else {
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
+}

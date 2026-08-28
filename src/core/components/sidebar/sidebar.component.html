@@ -1,0 +1,26 @@
+<!-- Path: src/app/core/components/sidebar/sidebar.component.html -->
+<aside class="cf-sidebar d-flex flex-column">
+    <div class="cf-sidebar-brand">
+        <span class="cf-logo-mark"><i class="bi bi-mortarboard-fill"></i></span>
+        <span class="cf-brand-text">EduEnroll</span>
+    </div>
+
+    <nav class="cf-sidebar-nav flex-grow-1">
+        <a class="cf-sidebar-link" routerLink="/" routerLinkActive="cf-sidebar-link-active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+        </a>
+    </nav>
+
+    <div class="cf-sidebar-footer">
+        @if (authService.isAuthenticated()) {
+        <div class="cf-user-chip small mb-2">{{ authService.currentUser()?.email }}</div>
+        <button class="btn btn-sm cf-btn-outline-danger w-100 rounded-pill" type="button" (click)="onLogout()">
+            Logout
+        </button>
+        } @else {
+        <a class="btn btn-sm cf-btn-primary w-100 rounded-pill" routerLink="/login">Sign In</a>
+        }
+    </div>
+</aside>

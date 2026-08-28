@@ -1,0 +1,78 @@
+.cf-auth-card {
+  background: var(--cf-surface);
+  border-radius: var(--cf-radius-lg);
+  box-shadow: var(--cf-shadow-card);
+  border: 1px solid var(--cf-border);
+}
+
+.cf-icon-badge {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--cf-primary-light);
+  color: var(--cf-primary);
+}
+
+.cf-heading {
+  color: var(--cf-text-primary);
+  font-weight: 700;
+}
+
+.cf-subtext {
+  color: var(--cf-text-secondary);
+}
+
+.cf-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cf-text-secondary);
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+.cf-input {
+  border: 1px solid var(--cf-border);
+  border-radius: var(--cf-radius-sm);
+  padding: 10px 14px;
+  font-size: 0.9rem;
+}
+
+.cf-input:focus {
+  border-color: var(--cf-primary);
+  box-shadow: 0 0 0 3px var(--cf-primary-light);
+}
+
+.cf-role-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--cf-border);
+  border-radius: var(--cf-radius-sm);
+  padding: 8px 14px;
+  flex: 1;
+}
+
+.cf-btn-primary {
+  background: var(--cf-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--cf-radius-sm);
+  padding: 10px;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.cf-btn-primary:hover {
+  background: var(--cf-primary-dark);
+  color: #fff;
+}
+
+.cf-link {
+  color: var(--cf-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.cf-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,63 @@
+/* Path: src/app/core/components/navbar/navbar.component.css */
+.cf-navbar {
+  background: var(--cf-surface);
+  border-bottom: 1px solid var(--cf-border);
+}
+
+.cf-logo-mark {
+  color: var(--cf-primary);
+  margin-right: 6px;
+}
+
+.cf-brand-text {
+  color: var(--cf-text-primary);
+  font-weight: 700;
+}
+
+.cf-nav-link {
+  color: var(--cf-text-secondary);
+  font-weight: 500;
+}
+
+.cf-nav-link-active {
+  color: var(--cf-primary) !important;
+  font-weight: 600;
+}
+
+.cf-user-chip {
+  color: var(--cf-text-secondary);
+}
+
+.cf-btn-primary {
+  background: var(--cf-primary);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.cf-btn-primary:hover {
+  background: var(--cf-primary-dark);
+  color: #fff;
+}
+
+.cf-btn-outline-secondary {
+  background: transparent;
+  border: 1px solid var(--cf-border);
+  color: var(--cf-text-secondary);
+  font-weight: 600;
+}
+
+.cf-btn-outline-secondary:hover {
+  background: var(--cf-bg);
+}
+
+.cf-btn-outline-danger {
+  background: transparent;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  font-weight: 600;
+}
+
+.cf-btn-outline-danger:hover {
+  background: #fef2f2;
+}

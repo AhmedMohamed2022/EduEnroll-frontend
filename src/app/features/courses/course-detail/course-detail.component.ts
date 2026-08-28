@@ -10,6 +10,7 @@ import { CourseDetailsDto } from '../../../../core/models/course.model';
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './course-detail.component.html',
+  styleUrl: './course-detail.component.css',
 })
 export class CourseDetailComponent implements OnInit {
   private courseService = inject(CourseService);

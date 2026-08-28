@@ -2,18 +2,17 @@
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-5">
-            <div class="card card-premium shadow-sm border-0 p-4 p-md-5 bg-white">
+            <div class="cf-auth-card p-4 p-md-5">
                 <div class="text-center mb-4">
-                    <div
-                        class="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary p-3 rounded-circle mb-3">
+                    <div class="cf-icon-badge d-inline-flex align-items-center justify-content-center mb-3">
                         <i class="bi bi-person-plus-fill fs-3"></i>
                     </div>
-                    <h3 class="fw-bold text-dark mb-1">Create Student Profile</h3>
-                    <p class="text-muted small">Register to start enrolling in upcoming courses</p>
+                    <h3 class="cf-heading mb-1">Create Student Profile</h3>
+                    <p class="cf-subtext small">Register to start enrolling in upcoming courses</p>
                 </div>
 
                 @if (errorMessage()) {
-                <div class="alert alert-danger border-0 shadow-none d-flex align-items-center rounded-3 mb-3 p-3">
+                <div class="alert alert-danger border-0 rounded-3 mb-3 p-3 d-flex align-items-center">
                     <i class="bi bi-exclamation-triangle-fill me-2 fs-5"></i>
                     <span class="small fw-medium">{{ errorMessage() }}</span>
                 </div>
@@ -22,39 +21,38 @@
                 <form (ngSubmit)="onRegisterSubmit()">
                     <div class="row g-3 mb-3">
                         <div class="col-12 col-sm-6">
-                            <label class="form-label small fw-bold text-secondary">First Name</label>
-                            <input type="text" class="form-control form-control-premium" placeholder="John"
-                                name="firstName" [(ngModel)]="registrationData.firstName" required />
+                            <label class="cf-label">First Name</label>
+                            <input type="text" class="form-control cf-input" placeholder="First Name" name="firstName"
+                                [(ngModel)]="registrationData.firstName" required />
                         </div>
                         <div class="col-12 col-sm-6">
-                            <label class="form-label small fw-bold text-secondary">Last Name</label>
-                            <input type="text" class="form-control form-control-premium" placeholder="Doe"
-                                name="lastName" [(ngModel)]="registrationData.lastName" required />
+                            <label class="cf-label">Last Name</label>
+                            <input type="text" class="form-control cf-input" placeholder="Last Name" name="lastName"
+                                [(ngModel)]="registrationData.lastName" required />
                         </div>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label small fw-bold text-secondary">Email Address</label>
-                        <input type="email" class="form-control form-control-premium"
-                            placeholder="john.doe@university.com" name="email" [(ngModel)]="registrationData.email"
-                            required />
+                        <label class="cf-label">Email Address</label>
+                        <input type="email" class="form-control cf-input" placeholder="FullName@university.com"
+                            name="email" [(ngModel)]="registrationData.email" required />
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label small fw-bold text-secondary">Password (min 6 characters)</label>
-                        <input type="password" class="form-control form-control-premium" placeholder="••••••••"
+                        <label class="cf-label">Password (min 6 characters)</label>
+                        <input type="password" class="form-control cf-input" placeholder="Type Strong Password"
                             name="password" [(ngModel)]="registrationData.password" required />
                     </div>
 
                     <div class="mb-4">
-                        <label class="form-label small fw-bold text-secondary d-block">Account Profile Type</label>
-                        <div class="d-flex gap-4">
-                            <div class="form-check">
+                        <label class="cf-label d-block">Account Profile Type</label>
+                        <div class="d-flex gap-3">
+                            <div class="cf-role-option">
                                 <input class="form-check-input" type="radio" name="userType" id="roleStudent"
                                     value="Student" [(ngModel)]="registrationData.userType" />
                                 <label class="form-check-label small fw-medium" for="roleStudent">I am a Student</label>
                             </div>
-                            <div class="form-check">
+                            <div class="cf-role-option">
                                 <input class="form-check-input" type="radio" name="userType" id="roleInstructor"
                                     value="Instructor" [(ngModel)]="registrationData.userType" />
                                 <label class="form-check-label small fw-medium" for="roleInstructor">I am an
@@ -63,13 +61,12 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-premium w-100 shadow-sm mb-3">
+                    <button type="submit" class="btn cf-btn-primary w-100 mb-3">
                         Register Account
                     </button>
 
-                    <p class="text-center small text-muted mb-0">
-                        Already registered? <a routerLink="/login"
-                            class="text-primary fw-medium text-decoration-none">Sign in instead</a>
+                    <p class="text-center small cf-subtext mb-0">
+                        Already registered? <a routerLink="/login" class="cf-link">Sign in instead</a>
                     </p>
                 </form>
             </div>

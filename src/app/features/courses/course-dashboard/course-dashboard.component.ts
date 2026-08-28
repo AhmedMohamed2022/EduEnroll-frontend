@@ -12,6 +12,7 @@ import { AuthService } from '../../../../core/services/auth.service';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './course-dashboard.component.html',
+  styleUrl: './course-dashboard.component.css',
 })
 export class CourseDashboardComponent implements OnInit {
   private courseService = inject(CourseService);

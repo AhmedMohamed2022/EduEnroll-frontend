@@ -1,0 +1,73 @@
+/* Path: src/app/core/components/sidebar/sidebar.component.css */
+.cf-sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background: var(--cf-surface);
+  border-right: 1px solid var(--cf-border);
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+}
+
+.cf-sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  color: var(--cf-text-primary);
+  margin-bottom: 32px;
+  padding: 0 8px;
+}
+
+.cf-logo-mark {
+  color: var(--cf-primary);
+}
+
+.cf-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cf-sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--cf-radius-sm);
+  color: var(--cf-text-secondary);
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+
+.cf-sidebar-link:hover {
+  background: var(--cf-bg);
+  color: var(--cf-text-primary);
+}
+
+.cf-sidebar-link-active {
+  background: var(--cf-primary-light) !important;
+  color: var(--cf-primary-dark) !important;
+  font-weight: 600;
+}
+
+.cf-user-chip {
+  color: var(--cf-text-secondary);
+  padding: 0 4px;
+}
+
+.cf-btn-primary {
+  background: var(--cf-primary);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+.cf-btn-outline-danger {
+  background: transparent;
+  border: 1px solid #fca5a5;
+  color: #dc2626;
+  font-weight: 600;
+}

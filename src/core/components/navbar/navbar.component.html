@@ -1,0 +1,37 @@
+<!-- Path: src/app/core/components/navbar/navbar.component.html -->
+<nav class="navbar navbar-expand-lg cf-navbar py-3 mb-4">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/">
+      <span class="cf-logo-mark"><i class="bi bi-mortarboard-fill"></i></span>
+      <span class="cf-brand-text">EduEnroll</span>
+    </a>
+
+    <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link cf-nav-link px-3" routerLink="/" routerLinkActive="cf-nav-link-active"
+            [routerLinkActiveOptions]="{exact: true}">Dashboard</a>
+        </li>
+      </ul>
+
+      <div class="d-flex align-items-lg-center flex-column flex-lg-row gap-3 ms-auto mt-2 mt-lg-0">
+        @if (authService.isAuthenticated()) {
+        <span class="cf-user-chip small">
+          Logged in as: <strong>{{ authService.currentUser()?.email }}</strong>
+        </span>
+        <button class="btn btn-sm cf-btn-outline-danger rounded-pill px-4" type="button" (click)="onLogout()">
+          Logout
+        </button>
+        } @else {
+        <a class="btn btn-sm cf-btn-outline-secondary rounded-pill px-4" routerLink="/login">Sign In</a>
+        <a class="btn btn-sm cf-btn-primary rounded-pill px-4" routerLink="/register">Register</a>
+        }
+      </div>
+    </div>
+  </div>
+</nav>

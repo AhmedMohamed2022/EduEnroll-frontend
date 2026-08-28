@@ -1,0 +1,10 @@
+/* Path: src/app/app.component.css */
+.cf-app-shell {
+  min-height: 100vh;
+}
+
+.cf-main-content {
+  background: var(--cf-bg);
+  padding: 24px;
+  min-height: 100vh;
+}
